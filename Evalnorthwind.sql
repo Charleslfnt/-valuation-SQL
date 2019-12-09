@@ -15,9 +15,11 @@ WHERE supplierID = '1';
 SELECT suppliers.CompanyName AS Fournisseur, COUNT(Products.SupplierID) as Nbre_produits FROM Suppliers
 INNER JOIN Products ON Suppliers.SupplierID = Products.SupplierID
 WHERE Suppliers.Country = 'France'
-GROUP BY suppliers.CompanyName
-HAVING COUNT(Products.SupplierID)
+GROUP BY suppliers.CompanyName --La commande GROUP BY est utilisée en SQL pour grouper plusieurs résultats et utiliser une fonction de totaux sur un groupe de résultat. 
+HAVING COUNT(Products.SupplierID) 
 ORDER BY Nbre_produits DESC;
+--En SQL, la fonction d’agrégation COUNT() permet de compter le nombre d’enregistrement dans une table.
+
 
 --exercice 04 client français ayant plus de 10 commmandes
 SELECT CompanyName AS CLIENT, COUNT(orders.customerID) AS Nbre_commandes 
